@@ -256,7 +256,6 @@ class ReviewViewSet(viewsets.ModelViewSet):
         return context
 
     def perform_create(self, serializer):
-        # فقط بیماران می‌تونن نظر بدن
         if not self.request.user.is_patient:
             raise PermissionDenied("فقط بیماران می‌توانند نظر دهند")
 
