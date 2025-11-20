@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import DoctorViewSet, TimeSlotViewSet, AppointmentViewSet, RegisterView, LoginView, LogoutView, ProfileView, \
-    DoctorReviewsView
+    DoctorReviewsView, DoctorRatingStatsView
 
 router = DefaultRouter()
 router.register('doctors', DoctorViewSet)
@@ -15,4 +15,5 @@ urlpatterns = [
     path('api/logout/', LogoutView.as_view(), name='logout'),
     path('api/profile/', ProfileView.as_view(), name='profile'),
     path('api/doctors/<int:doctor_id>/reviews/', DoctorReviewsView.as_view(), name='doctor-reviews'),
+    path('api/doctors/<int:doctor_id>/rating-stats/', DoctorRatingStatsView.as_view(), name='doctor-rating-stats'),
 ]
